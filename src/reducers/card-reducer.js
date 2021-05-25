@@ -4,11 +4,13 @@ const cardsReducer = (cards = defaultCards, action) => {
   if (action.type === 'CARD_CREATE') {
     const { card, cardId } = action.payload;
     return {
-      entities: { ...cards.entities, [cardId]: card },
-      ids: [...cards.ids, cardId],
-    };
+      entities: {
+        ...cards.entities,
+        [cardId]: card
+      },
+      ids: [...cards.ids, cardId]
+    }
   }
-
   return cards;
 };
 

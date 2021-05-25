@@ -1,6 +1,5 @@
 import React from 'react';
 
-import CreateCard from './CreateCard';
 import CardContainer from '../containers/CardContainer';
 import CreateCardContainer from '../containers/CreateCardContainer';
 

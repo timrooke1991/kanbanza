@@ -4,8 +4,8 @@ import CreateCard from '../components/CreateCard';
 const defaultCardData = {
   title: '',
   description: '',
-  assignedTo: '',
-};
+  assignedTo: ''
+}
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -14,17 +14,19 @@ const mapDispatchToProps = dispatch => {
       const card = {
         id: cardId,
         ...defaultCardData,
-        ...cardData,
+        ...cardData
       };
+
       dispatch({
         type: 'CARD_CREATE',
-        payload: { card, listId, cardId },
+        payload: {
+          card,
+          listId,
+          cardId
+        }
       });
-    },
+    }
   };
-};
+}
 
-export default connect(
-  null,
-  mapDispatchToProps,
-)(CreateCard);
+export default connect(null, mapDispatchToProps)(CreateCard);
