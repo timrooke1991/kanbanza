@@ -1,21 +1,15 @@
 import { lists as defaultLists } from '../normalized-state';
+import set from 'lodash/fp/set';
+
+
 
 const listsReducer = (lists = defaultLists, action) => {
   if (action.type === 'CARD_CREATE') {
     const { cardId, listId } = action.payload;
-    const entities = {
-      ...lists.entities
-    };
 
-    entities[listId] = {
-      ...entities[listId],
-      cards: entities[listId].cards.concat(cardId)
-    };
+    const cards = lists.entities[listId].cards.concat(cardId);
 
-    return {
-      ...lists,
-      entities
-    };
+    return set(['entities', listId, 'cards'], cards, lists);
   }
   return lists;
 };
